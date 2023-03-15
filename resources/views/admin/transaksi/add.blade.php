@@ -72,10 +72,9 @@
                                     placeholder="Masukkan Batas Waktu Transaksi" value="{{ old('batas_waktu') }}" required>
                             </div>
                             <div class="form-group">
-                                <label for="diskon">Diskon </label>
+                                <label for="diskon">Diskon %</label>
                                 <input type="number" class="form-control" id="diskon" name="diskon"
-                                    placeholder="Masukkan diskon transaksi" value="{{ old('diskon') }}" step="0.1"
-                                    max="5">
+                                    placeholder="Masukkan diskon transaksi" value="{{ old('diskon') }}" max="100">
                             </div>
                         </div><!-- /.box-body -->
 

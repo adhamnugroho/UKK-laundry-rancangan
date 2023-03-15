@@ -24,47 +24,57 @@
                     </div><!-- /.box-header -->
                     <div class="box-body">
 
-                        <a href="{{ route('outletCreate') }}" class="btn btn-primary btn-sm mb-2">
-                            Registasi {{ $judul }}
-                        </a>
+                        <div class="row mb-2">
+
+                            <input type="date" name="tanggal_awal" id="tanggal_awal" class="col-md-2 ml-2">
+
+                            <div class="col-md-1 text-center fs-3">-</div>
+
+                            <input type="date" name="tanggal_akhir" id="tanggal_akhir" class="col-md-2">
+
+                            <div class="col-md-4 text-right">
+                                <button class="btn btn-primary btn-sm mb-2" onclick="cariData()">
+                                    Cari Data {{ $sub_menu }}
+                                </button>
+                            </div>
+
+                            <div class="col-md-2 ">
+                                <button class="btn btn-primary btn-sm mb-2" onclick="printData()">
+                                    Print {{ $sub_menu }}
+                                </button>
+                            </div>
+
+
+                        </div>
 
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Nama Outlet</th>
-                                    <th>Nomor Telepon</th>
-                                    <th>Aksi</th>
+                                    <th>Kode Invoice</th>
+                                    <th>Nama Paket</th>
+                                    <th>Tanggal Transaksi</th>
+                                    <th>Status Transaksi</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($outlet as $key => $ot)
+                                @foreach ($transaksi as $key => $tr)
                                     <tr>
                                         <td>{{ $key + 1 }}</td>
-                                        <td>{{ $ot->nama }}</td>
-                                        <td>{{ $ot->tlp }}</td>
-                                        <td>
-                                            <a href="{{ route('outletShow', $ot->id) }}" class="btn btn-warning btn-sm">
-                                                <i class="fa fa-eye"></i>
-                                            </a>
-                                            <a href="{{ route('outletEdit', $ot->id) }}" class="btn btn-primary btn-sm">
-                                                <i class="fa fa-edit"></i>
-                                            </a>
-                                            <a href="{{ route('outletDelete', $ot->id) }}" class="btn btn-danger btn-sm"
-                                                id="button-delete"
-                                                onclick="return confirm('Apakah anda ingin menghapus outlet ini?')">
-                                                <i class="fa fa-trash"></i>
-                                            </a>
-                                        </td>
+                                        <td>{{ $tr->kode_invoice }}</td>
+                                        <td>{{ $tr->detail_transaksi[0]->paket->nama }}</td>
+                                        <td>{{ $tr->tgl }}</td>
+                                        <td>{{ $tr->status }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
                             <tfoot>
                                 <tr>
                                     <th>No</th>
-                                    <th>Nama Outlet</th>
-                                    <th>Nomor Telepon</th>
-                                    <th>Aksi</th>
+                                    <th>Kode Invoice</th>
+                                    <th>Nama Paket</th>
+                                    <th>Tanggal Transaksi</th>
+                                    <th>Status Transaksi</th>
                                 </tr>
                             </tfoot>
                         </table>
@@ -73,4 +83,35 @@
             </div><!-- /.col -->
         </div><!-- /.row -->
     </section><!-- /.content -->
+@endsection
+
+
+@section('script')
+    <script>
+        function cariData() {
+            let tanggal_awal = document.getElementById("tanggal_awal").value;
+            let tanggal_akhir = document.getElementById("tanggal_akhir").value;
+
+            if (tanggal_awal != null && tanggal_akhir != null) {
+
+                window.open(
+                    `{{ route('laporanTransaksi') }}?tanggal_awal=${tanggal_awal}&tanggal_akhir=${tanggal_akhir}`,
+                    '_self');
+            }
+
+        }
+
+        function printData() {
+            let tanggal_awal = document.getElementById("tanggal_awal").value;
+            let tanggal_akhir = document.getElementById("tanggal_akhir").value;
+
+            if (tanggal_awal != null && tanggal_akhir != null) {
+
+                window.open(
+                    `{{ route('laporanTransaksiPrint') }}?tanggal_awal=${tanggal_awal}&tanggal_akhir=${tanggal_akhir}`,
+                    '_self');
+            }
+
+        }
+    </script>
 @endsection

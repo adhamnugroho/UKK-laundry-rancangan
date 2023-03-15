@@ -48,20 +48,67 @@
 </head>
 
 <body class="skin-blue">
-    <div class="wrapper">
-
-        @include('admin.layout.header')
-
-        <!-- Left side column. contains the logo and sidebar -->
-        @include('admin.layout.sidebar')
-
-        <!-- Right side column. Contains the navbar and content of the page -->
-        <div class="content-wrapper">
-            @yield('content')
-        </div><!-- /.content-wrapper -->
-
-        @include('admin.layout.footer')
-    </div><!-- ./wrapper -->
+    <table id="example1" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Kode Invoice</th>
+                <th>Nama Member</th>
+                <th>Nama User</th>
+                <th>Nama Paket</th>
+                <th>Quantity</th>
+                <th>Tanggal Transaksi</th>
+                <th>Batas Waktu</th>
+                <th>Tanggal Pembayaran</th>
+                <th>Total Harga</th>
+                <th>Diskon</th>
+                <th>Pajak</th>
+                <th>Status Transaksi</th>
+                <th>Status Pembayaran</th>
+                <th>Keterangan</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($transaksi as $key => $tr)
+                <tr>
+                    <td>{{ $key + 1 }}</td>
+                    <td>{{ $tr->kode_invoice }}</td>
+                    <td>{{ $tr->member->nama }}</td>
+                    <td>{{ $tr->users->nama }}</td>
+                    <td>{{ $tr->detail_transaksi[0]->paket->nama }}</td>
+                    <td>{{ $tr->detail_transaksi[0]->paket->qty }}</td>
+                    <td>{{ $tr->tgl }}</td>
+                    <td>{{ $tr->batas_waktu }}</td>
+                    <td>{{ $tr->tgl_bayar }}</td>
+                    <td>{{ $tr->total_harga }}</td>
+                    <td>{{ $tr->diskon }}</td>
+                    <td>{{ $tr->pajak }}</td>
+                    <td>{{ $tr->status }}</td>
+                    <td>{{ $tr->dibayar }}</td>
+                    <td>{{ $tr->detail_transaksi[0]->keterangan }}</td>
+                </tr>
+            @endforeach
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>No</th>
+                <th>Kode Invoice</th>
+                <th>Nama Member</th>
+                <th>Nama User</th>
+                <th>Nama Paket</th>
+                <th>Quantity</th>
+                <th>Tanggal Transaksi</th>
+                <th>Batas Waktu</th>
+                <th>Tanggal Pembayaran</th>
+                <th>Total Harga</th>
+                <th>Diskon</th>
+                <th>Pajak</th>
+                <th>Status Transaksi</th>
+                <th>Status Pembayaran</th>
+                <th>Keterangan</th>
+            </tr>
+        </tfoot>
+    </table>
 
     <!-- jQuery 2.1.3 -->
     <script src="{{ asset('template-admin/plugins/jQuery/jQuery-2.1.3.min.js') }}"></script>

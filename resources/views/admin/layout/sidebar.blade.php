@@ -51,6 +51,11 @@
                     <i class="fa fa-shopping-cart"></i> <span>Transaksi</span>
                 </a>
             </li>
+            <li class="{{ $menu == 'laporan_transaksi' ? 'active' : '' }}">
+                <a href="{{ route('laporanTransaksi') }}">
+                    <i class="fa fa-file-text-o"></i> <span>Laporan Transaksi</span>
+                </a>
+            </li>
         </ul>
     </section>
     <!-- /.sidebar -->

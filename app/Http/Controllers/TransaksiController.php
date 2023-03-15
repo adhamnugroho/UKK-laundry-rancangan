@@ -69,13 +69,13 @@ class TransaksiController extends Controller
             $validatedDataTransaksi['total_harga'] = 0;
             $validatedDataTransaksi['pajak'] = 0;
 
-            if (!empty($request->diskon) && $request != 0) {
+            if (!empty($request->diskon) && $request->diskon != 0) {
 
                 $request->validate([
-                    'diskon' => 'required',
+                    'diskon' => 'required|numeric',
                 ]);
 
-                $validatedDataTransaksi['diskon'] = $request->diskon;
+                $validatedDataTransaksi['diskon'] = intval($request->diskon) / 100;
             } else {
 
                 $validatedDataTransaksi['diskon'] = 0;

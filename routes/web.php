@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LaporanTransaksiController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\OutletController;
 use App\Http\Controllers\PaketController;
@@ -95,6 +96,12 @@ Route::middleware('auth')->group(function () {
                 Route::post('/postBayar', [TransaksiController::class, 'postBayar'])->name('transaksiPostBayar');
                 Route::get('/proses/{id}', [TransaksiController::class, 'prosesTransaksi'])->name('transaksiProses');
                 Route::get('/selesai/{id}', [TransaksiController::class, 'selesaiTransaksi'])->name('transaksiSelesai');
+            });
+
+            Route::prefix('laporan-transaksi')->group(function () {
+
+                Route::get('/', [LaporanTransaksiController::class, 'main'])->name('laporanTransaksi');
+                Route::get('/print', [LaporanTransaksiController::class, 'print'])->name('laporanTransaksiPrint');
             });
         });
     });
