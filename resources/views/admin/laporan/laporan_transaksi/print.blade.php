@@ -206,10 +206,10 @@
     </script>
 
     <script>
-        // window.print();
-        // window.onfocus = function() {
-        //     window.close();
-        // }
+        window.print();
+        window.onfocus = function() {
+            window.close();
+        }
     </script>
 </body>
 
