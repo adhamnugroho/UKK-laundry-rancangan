@@ -35,7 +35,7 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware('auth')->group(function () {
 
-    Route::middleware('is_admin')->group(function () {
+    Route::middleware('check_user')->group(function () {
 
         Route::prefix('admin')->group(function () {
 

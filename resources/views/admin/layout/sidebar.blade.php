@@ -7,7 +7,7 @@
                 <img src="{{ asset('template-admin/dist/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image" />
             </div>
             <div class="pull-left info">
-                <p>{{ Auth::user()->nama }}</p>
+            <p>{{ Auth::user()->nama }}</p>
 
                 @if (Auth::user()->role == 'admin')
                     <a href="#"><i class="fa fa-circle text-success"></i> Admin</a>
@@ -26,36 +26,60 @@
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                 </a>
             </li>
-            <li class="{{ $menu == 'member' ? 'active' : '' }}">
-                <a href="{{ route('member') }}">
-                    <i class="fa fa-users"></i> <span>Member</span>
-                </a>
-            </li>
-            <li class="{{ $menu == 'user' ? 'active' : '' }}">
-                <a href="{{ route('user') }}">
-                    <i class="fa fa-users"></i> <span>Users</span>
-                </a>
-            </li>
-            <li class="{{ $menu == 'outlet' ? 'active' : '' }}">
-                <a href="{{ route('outlet') }}">
-                    <i class="fa fa-home"></i> <span>Outlet</span>
-                </a>
-            </li>
-            <li class="{{ $menu == 'paket' ? 'active' : '' }}">
-                <a href="{{ route('paket') }}">
-                    <i class="fa fa-archive"></i> <span>Paket</span>
-                </a>
-            </li>
-            <li class="{{ $menu == 'transaksi' ? 'active' : '' }}">
-                <a href="{{ route('transaksi') }}">
-                    <i class="fa fa-shopping-cart"></i> <span>Transaksi</span>
-                </a>
-            </li>
-            <li class="{{ $menu == 'laporan_transaksi' ? 'active' : '' }}">
-                <a href="{{ route('laporanTransaksi') }}">
-                    <i class="fa fa-file-text-o"></i> <span>Laporan Transaksi</span>
-                </a>
-            </li>
+            @if (Auth::user()->role == 'admin')
+                <li class="{{ $menu == 'member' ? 'active' : '' }}">
+                    <a href="{{ route('member') }}">
+                        <i class="fa fa-users"></i> <span>Member</span>
+                    </a>
+                </li>
+                <li class="{{ $menu == 'user' ? 'active' : '' }}">
+                    <a href="{{ route('user') }}">
+                        <i class="fa fa-users"></i> <span>Users</span>
+                    </a>
+                </li>
+                <li class="{{ $menu == 'outlet' ? 'active' : '' }}">
+                    <a href="{{ route('outlet') }}">
+                        <i class="fa fa-home"></i> <span>Outlet</span>
+                    </a>
+                </li>
+                <li class="{{ $menu == 'paket' ? 'active' : '' }}">
+                    <a href="{{ route('paket') }}">
+                        <i class="fa fa-archive"></i> <span>Paket</span>
+                    </a>
+                </li>
+                <li class="{{ $menu == 'transaksi' ? 'active' : '' }}">
+                    <a href="{{ route('transaksi') }}">
+                        <i class="fa fa-shopping-cart"></i> <span>Transaksi</span>
+                    </a>
+                </li>
+                <li class="{{ $menu == 'laporan_transaksi' ? 'active' : '' }}">
+                    <a href="{{ route('laporanTransaksi') }}">
+                        <i class="fa fa-file-text-o"></i> <span>Laporan Transaksi</span>
+                    </a>
+                </li>
+            @elseif(Auth::user()->role == 'kasir')
+                <li class="{{ $menu == 'member' ? 'active' : '' }}">
+                    <a href="{{ route('member') }}">
+                        <i class="fa fa-users"></i> <span>Member</span>
+                    </a>
+                </li>
+                <li class="{{ $menu == 'transaksi' ? 'active' : '' }}">
+                    <a href="{{ route('transaksi') }}">
+                        <i class="fa fa-shopping-cart"></i> <span>Transaksi</span>
+                    </a>
+                </li>
+                <li class="{{ $menu == 'laporan_transaksi' ? 'active' : '' }}">
+                    <a href="{{ route('laporanTransaksi') }}">
+                        <i class="fa fa-file-text-o"></i> <span>Laporan Transaksi</span>
+                    </a>
+                </li>
+            @elseif(Auth::user()->role == 'owner')
+                <li class="{{ $menu == 'laporan_transaksi' ? 'active' : '' }}">
+                    <a href="{{ route('laporanTransaksi') }}">
+                        <i class="fa fa-file-text-o"></i> <span>Laporan Transaksi</span>
+                    </a>
+                </li>
+            @endif
         </ul>
     </section>
     <!-- /.sidebar -->

@@ -16,11 +16,6 @@ class isAdmin
     public function handle(Request $request, Closure $next): Response
     {
 
-        // if(auth()->user()->role != 'Admin') {
-
-        //     return redirect()->route('dash')
-        // }
-
         return $next($request);
     }
 }
