@@ -1,0 +1,20 @@
+DROP PROCEDURE `getTotalHarga`;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `getTotalHarga`(IN `qty` DOUBLE, IN `id_paket` INT(11), IN `diskon` DOUBLE, IN `id_transaksi` INT(11)) NOT DETERMINISTIC CONTAINS SQL SQL SECURITY DEFINER BEGIN 
+
+	DECLARE totalHarga int(11);
+    DECLARE hargaPaket int(11);
+    DECLARE hargaDiskon int(11);
+	
+    SELECT harga INTO hargaPaket FROM tb_paket WHERE id = id_paket;
+    
+    IF(diskon != 0) THEN
+    	
+        SET hargaDiskon = (hargaPaket * qty) * diskon;
+        SET totalHarga = (hargaPaket * qty) - hargaDiskon;
+    ELSE
+    	SET totalHarga = hargaPaket * qty;
+    END IF;
+
+	UPDATE tb_transaksi SET total_harga = totalHarga WHERE id = id_transaksi;
+
+END
