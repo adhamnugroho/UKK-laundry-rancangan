@@ -39,9 +39,10 @@
                             </div>
                             <div class="form-group">
                                 <label for="nominal_pembayaran">Nominal Pembayaran <sup class="text-danger">*</sup></label>
-                                <input type="number" class="form-control" id="nominal_pembayaran" name="nominal_pembayaran"
-                                    placeholder="Masukkan Nominal Pembayaran" value="{{ $transaksi->nominal_pembayaran }}"
-                                    required>
+                                <input type="number" class="form-control" id="nominal_pembayaran_1"
+                                    name="nominal_pembayaran" placeholder="Masukkan Nominal Pembayaran"
+                                    value="{{ $transaksi->nominal_pembayaran }}" required inputmode="numeric"
+                                    autocomplete="transaction-currency">
                             </div>
                             <div class="form-group">
                                 <label for="keterangan">Keterangan </label>
@@ -62,14 +63,14 @@
 @section('script')
     <script>
         $(document).ready(function() {
-            minimalPembayaran()
+            minimalPembayaran();
         })
 
         function minimalPembayaran() {
-            let total_harga = Number(document.getElementById("total_harga").value);
-            let nominal_pembayaran = document.getElementById("nominal_pembayaran");
+            let total_harga = document.getElementById("total_harga").value;
+            let nominal_pembayaran = document.getElementById("nominal_pembayaran_1");
 
-            nominal_pembayaran.seAttribute("min", total_harga);
+            nominal_pembayaran.setAttribute("min", total_harga);
         }
     </script>
 @endsection

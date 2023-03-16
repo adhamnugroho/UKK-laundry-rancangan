@@ -43,7 +43,6 @@ class TransaksiController extends Controller
     public function store(Request $request)
     {
 
-        // return $request->all();
 
         DB::beginTransaction();
 
@@ -147,7 +146,6 @@ class TransaksiController extends Controller
     public function postBayar(Request $request)
     {
 
-        // return $request->all();
 
         try {
 
@@ -159,6 +157,8 @@ class TransaksiController extends Controller
                     'keterangan' => 'required',
                 ]);
             }
+
+            $validatedDataTransaksi['tgl_bayar'] = Carbon::now()->format("Y-m-d");
 
             $validatedDataTransaksi['dibayar'] = 'dibayar';
             $validatedDataTransaksi['status'] = 'diambil';

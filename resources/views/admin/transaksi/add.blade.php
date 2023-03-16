@@ -56,10 +56,10 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="qty">Quantity Paket <sup class="text-danger">*</sup></label>
+                                <label for="qty">Quantity Paket (Kg) <sup class="text-danger">*</sup></label>
                                 <input type="number" class="form-control" id="qty" name="qty"
                                     placeholder="Masukkan Quantity Paket" value="{{ old('qty') }}" step="0.1"
-                                    max="2" required>
+                                    max="20" required>
                             </div>
                             <div class="form-group">
                                 <label for="tgl">Tanggal Transaksi <sup class="text-danger">*</sup></label>
@@ -72,7 +72,7 @@
                                     placeholder="Masukkan Batas Waktu Transaksi" value="{{ old('batas_waktu') }}" required>
                             </div>
                             <div class="form-group">
-                                <label for="diskon">Diskon %</label>
+                                <label for="diskon">Diskon (%)</label>
                                 <input type="number" class="form-control" id="diskon" name="diskon"
                                     placeholder="Masukkan diskon transaksi" value="{{ old('diskon') }}" max="100">
                             </div>
@@ -86,4 +86,41 @@
                 </div><!-- /.box -->
             </div> <!-- /.row -->
     </section><!-- /.content -->
+@endsection
+
+
+@section('script')
+    <script>
+
+        $(document).ready(function() {
+            setMinTanggal();
+        });
+
+        function setMinTanggal() {
+
+            // Fitur dinamic day in min attribute input:date id"tanggal_penyewaan" dan id"tanggal_pengembalian"
+            let inputDatesTanggalAwal = document.getElementById('tanggal_awal');
+            let inputDatesTanggalAkhir = document.getElementById('tanggal_akhir');
+            // Mendapatkan tanggal hari ini
+            var tanggalSekarang = new Date();
+            // Menambahkan 1 hari pada tanggal hari ini
+            tanggalSekarang.setDate(tanggalSekarang.getDate() + 2);
+            // Mengambil bagian tanggal, bulan, dan tahun dari tanggal hari ini
+            var tanggal = tanggalSekarang.getDate();
+            var bulan = tanggalSekarang.getMonth() + 1;
+            var tahun = tanggalSekarang.getFullYear();
+            // Menambahkan 0 di depan tanggal dan bulan jika kurang dari 10
+            if (tanggal < 10) {
+                tanggal = "0" + tanggal;
+            }
+            if (bulan < 10) {
+                bulan = "0" + bulan;
+            }
+            // Menyusun tanggal hari ini + 1 dalam format yyyy-mm-dd
+            var tanggalHariIni = tahun + "-" + bulan + "-" + tanggal;
+            // Menetapkan nilai attribute min pada elemen input dengan tanggal hari ini
+            inputDatesTanggalAwal.min = tanggalHariIni;
+            inputDatesTanggalAkhir.min = tanggalHariIni;
+        }
+    </script>
 @endsection
