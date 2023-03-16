@@ -22,6 +22,7 @@ class LaporanTransaksiController extends Controller
                 'menu' => $this->menu,
                 'sub_menu' => $this->sub_menu,
                 'transaksi' => transaksi::with(['detail_transaksi.paket', 'outlet', 'member', 'users'])->whereBetween('tgl', [$request->tanggal_awal, $request->tanggal_akhir])->get(),
+
             ]);
         } else {
 
@@ -29,7 +30,7 @@ class LaporanTransaksiController extends Controller
                 'judul' => $this->judul,
                 'menu' => $this->menu,
                 'sub_menu' => $this->sub_menu,
-                'transaksi' => transaksi::with('detail_transaksi')->get(),
+                'transaksi' => transaksi::with('detail_transaksi')->orderBy('id', 'DESC')->get(),
             ]);
         }
     }
@@ -44,14 +45,16 @@ class LaporanTransaksiController extends Controller
                 'menu' => $this->menu,
                 'sub_menu' => $this->sub_menu,
                 'transaksi' => transaksi::with(['detail_transaksi.paket', 'outlet', 'member', 'users'])->whereBetween('tgl', [$request->tanggal_awal, $request->tanggal_akhir])->get(),
+                'tanggal_awal' => $request->tanggal_awal,
+                'tanggal_akhir' => $request->tanggal_akhir,
             ]);
         } else {
 
-            return view($this->directoryAdmin . ".print", [
+            return view($this->directoryAdmin . ".printSemua", [
                 'judul' => $this->judul,
                 'menu' => $this->menu,
                 'sub_menu' => $this->sub_menu,
-                'member' => transaksi::with('detail_transaksi')->get(),
+                'transaksi' => transaksi::with('detail_transaksi')->get(),
             ]);
         }
     }

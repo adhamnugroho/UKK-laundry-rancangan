@@ -50,7 +50,7 @@
 <body class="skin-blue">
 
     <h1 class="text-center">Laporan Transaksi</h1>
-    <p class="text-center mb-3">Dari tanggal: {{ $tanggal_awal }} sampai tanggal: {{ $tanggal_akhir }}</p>
+    <p class="text-center mb-3">Semua data transaksi</p>
 
     <table id="example1" class="table table-bordered table-striped">
         <thead>

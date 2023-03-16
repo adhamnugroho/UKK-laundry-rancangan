@@ -92,12 +92,17 @@
             let tanggal_awal = document.getElementById("tanggal_awal").value;
             let tanggal_akhir = document.getElementById("tanggal_akhir").value;
 
-            if (tanggal_awal != null && tanggal_akhir != null) {
+            if (tanggal_awal != "" && tanggal_akhir != "") {
 
                 window.open(
                     `{{ route('laporanTransaksi') }}?tanggal_awal=${tanggal_awal}&tanggal_akhir=${tanggal_akhir}`,
                     '_self');
+            } else {
+
+                alert("kolom tanggal ada yang kosong!")
             }
+
+
 
         }
 
@@ -105,11 +110,21 @@
             let tanggal_awal = document.getElementById("tanggal_awal").value;
             let tanggal_akhir = document.getElementById("tanggal_akhir").value;
 
-            if (tanggal_awal != null && tanggal_akhir != null) {
+            if (tanggal_awal != "" && tanggal_akhir != "") {
 
                 window.open(
                     `{{ route('laporanTransaksiPrint') }}?tanggal_awal=${tanggal_awal}&tanggal_akhir=${tanggal_akhir}`,
                     '_self');
+            } else {
+
+                if (confirm("Anda ingin meng-print semua data transaksi?")) {
+                    window.open(
+                        `{{ route('laporanTransaksiPrint') }}`, '_self');
+                } else {
+                    alert("Pembuatan laporan dibatalkan")
+                }
+
+
             }
 
         }
