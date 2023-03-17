@@ -414,7 +414,7 @@ Free Bootstrap 5 HTML Template
                                         <a href="services-detail.html">
                                             <img src="{{ asset('template-user/images/services/professional-industrial-cleaner-protective-uniform-cleaning-floor-food-processing-plant.jpg') }}"
                                                 class="services-image img-fluid" alt="">
-                                            <img src="{{ asset('template-user/') }}images/services/close-up-mop-cleaning-industrial-plant-floor.jpg"
+                                            <img src="{{ asset('template-user/images/services/close-up-mop-cleaning-industrial-plant-floor.jpg') }}"
                                                 class="services-image services-image-hover img-fluid" alt="">
 
                                             <div class="services-icon-wrap">
@@ -490,7 +490,8 @@ Free Bootstrap 5 HTML Template
                     <div class="col-lg-4 col-12">
                         <div class="featured-block">
                             <div class="d-flex align-items-center mb-3">
-                                <img src="{{ asset('template-user/') }}images/avatar/happy-customer-01.jpg" class="avatar-image img-fluid">
+                                <img src="{{ asset('template-user/images/avatar/happy-customer-01.jpg') }}"
+                                    class="avatar-image img-fluid">
 
                                 <div class="ms-3">
                                     <h4 class="mb-0">Marie</h4>
@@ -510,7 +511,8 @@ Free Bootstrap 5 HTML Template
 
                         <div class="featured-block mb-lg-0">
                             <div class="d-flex align-items-center mb-3">
-                                <img src="{{ asset('template-user/') }}images/avatar/happy-customer-02.jpg" class="avatar-image img-fluid">
+                                <img src="{{ asset('template-user/images/avatar/happy-customer-02.jpg') }}"
+                                    class="avatar-image img-fluid">
 
                                 <div class="ms-3">
                                     <h4 class="mb-0">Nana</h4>
@@ -533,7 +535,8 @@ Free Bootstrap 5 HTML Template
                     <div class="col-lg-4 col-12">
                         <div class="featured-block">
                             <div class="d-flex align-items-center mb-3">
-                                <img src="{{ asset('template-user/') }}images/avatar/happy-customer-03.jpg" class="avatar-image img-fluid">
+                                <img src="{{ asset('template-user/images/avatar/happy-customer-03.jpg') }}"
+                                    class="avatar-image img-fluid">
 
                                 <div class="ms-3">
                                     <h4 class="mb-0">Elon</h4>
@@ -554,7 +557,8 @@ Free Bootstrap 5 HTML Template
 
                         <div class="featured-block mb-lg-0">
                             <div class="d-flex align-items-center mb-3">
-                                <img src="{{ asset('template-user/') }}images/avatar/happy-customer-04.jpg" class="avatar-image img-fluid">
+                                <img src="{{ asset('template-user/images/avatar/happy-customer-04.jpg') }}"
+                                    class="avatar-image img-fluid">
 
                                 <div class="ms-3">
                                     <h4 class="mb-0">Josh</h4>
@@ -577,7 +581,8 @@ Free Bootstrap 5 HTML Template
                     <div class="col-lg-4 col-12">
                         <div class="featured-block">
                             <div class="d-flex align-items-center mb-3">
-                                <img src="{{ asset('template-user/') }}images/avatar/happy-customer-05.jpg" class="avatar-image img-fluid">
+                                <img src="{{ asset('template-user/images/avatar/happy-customer-05.jpg') }}"
+                                    class="avatar-image img-fluid">
 
                                 <div class="ms-3">
                                     <h4 class="mb-0">Katie</h4>
@@ -598,7 +603,8 @@ Free Bootstrap 5 HTML Template
 
                         <div class="featured-block mb-lg-0">
                             <div class="d-flex align-items-center mb-3">
-                                <img src="{{ asset('template-user/') }}images/avatar/happy-customer-06.jpg" class="avatar-image img-fluid">
+                                <img src="{{ asset('template-user/images/avatar/happy-customer-06.jpg') }}"
+                                    class="avatar-image img-fluid">
 
                                 <div class="ms-3">
                                     <h4 class="mb-0">Shai</h4>
@@ -632,23 +638,28 @@ Free Bootstrap 5 HTML Template
                     </div>
 
                     <div class="col-lg-2 col-md-4 col-6">
-                        <img src="{{ asset('template-user/') }}images/partners/toprak-leasing.svg" class="partners-image img-fluid">
+                        <img src="{{ asset('template-user/images/partners/toprak-leasing.svg') }}"
+                            class="partners-image img-fluid">
                     </div>
 
                     <div class="col-lg-2 col-md-4 col-6">
-                        <img src="{{ asset('template-user/') }}images/partners/glorix.svg" class="partners-image img-fluid">
+                        <img src="{{ asset('template-user/images/partners/glorix.svg') }}"
+                            class="partners-image img-fluid">
                     </div>
 
                     <div class="col-lg-2 col-md-4 col-6">
-                        <img src="{{ asset('template-user/') }}images/partners/woocommerce.svg" class="partners-image img-fluid">
+                        <img src="{{ asset('template-user/images/partners/woocommerce.svg') }}"
+                            class="partners-image img-fluid">
                     </div>
 
                     <div class="col-lg-2 col-md-4 col-6">
-                        <img src="{{ asset('template-user/') }}images/partners/rolf-leasing.svg" class="partners-image img-fluid">
+                        <img src="{{ asset('template-user/images/partners/rolf-leasing.svg') }}"
+                            class="partners-image img-fluid">
                     </div>
 
                     <div class="col-lg-2 col-md-4 col-6">
-                        <img src="{{ asset('template-user/') }}images/partners/unilabs.svg" class="partners-image img-fluid">
+                        <img src="{{ asset('template-user/images/partners/unilabs.svg') }}"
+                            class="partners-image img-fluid">
                     </div>
 
                 </div>
@@ -663,7 +674,8 @@ Free Bootstrap 5 HTML Template
 
                 <div class="col-lg-12 col-12 d-flex align-items-center mb-4 pb-2">
                     <div>
-                        <img src="{{ asset('template-user/') }}images/bubbles.png" class="logo img-fluid" alt="">
+                        <img src="{{ asset('template-user/images/bubbles.png') }}" class="logo img-fluid"
+                            alt="">
                     </div>
 
                     <ul class="footer-menu d-flex flex-wrap ms-5">
@@ -801,15 +813,15 @@ Free Bootstrap 5 HTML Template
     </footer>
 
     <!-- JAVASCRIPT FILES -->
-    <script src="{{ asset('template-user/') }}js/jquery.min.js"></script>
-    <script src="{{ asset('template-user/') }}js/bootstrap.min.js"></script>
-    <script src="{{ asset('template-user/') }}js/jquery.backstretch.min.js"></script>
-    <script src="{{ asset('template-user/') }}js/counter.js"></script>
-    <script src="{{ asset('template-user/') }}js/countdown.js"></script>
-    <script src="{{ asset('template-user/') }}js/init.js"></script>
-    <script src="{{ asset('template-user/') }}js/modernizr.js"></script>
-    <script src="{{ asset('template-user/') }}js/animated-headline.js"></script>
-    <script src="{{ asset('template-user/') }}js/custom.js"></script>
+    <script src="{{ asset('template-user/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('template-user/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('template-user/js/jquery.backstretch.min.js') }}"></script>
+    <script src="{{ asset('template-user/js/counter.js') }}"></script>
+    <script src="{{ asset('template-user/js/countdown.js') }}"></script>
+    <script src="{{ asset('template-user/js/init.js') }}"></script>
+    <script src="{{ asset('template-user/js/modernizr.js') }}"></script>
+    <script src="{{ asset('template-user/js/animated-headline.js') }}"></script>
+    <script src="{{ asset('template-user/js/custom.js') }}"></script>
 
 </body>
 
