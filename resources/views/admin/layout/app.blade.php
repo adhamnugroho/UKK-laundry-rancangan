@@ -154,6 +154,10 @@
         @endif
     </script>
 
+    <script>
+        document.getElementById("tahun_sekarang").innerHTML = new Date().getFullYear();
+    </script>
+
     @yield('script')
 </body>
 
