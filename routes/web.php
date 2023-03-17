@@ -35,9 +35,9 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware('auth')->group(function () {
 
-    Route::get('/dashboard', [DashboardController::class, 'main'])->middleware(['is_admin', 'is_kasir', 'is_owner'])->name('dashboardAdmin');
+    Route::get('/dashboard', [DashboardController::class, 'main'])->middleware('tripleRole')->name('dashboardAdmin');
 
-    Route::prefix('member')->middleware(['is_admin', 'is_kasir'])->group(function () {
+    Route::prefix('member')->middleware("doubleRole")->group(function () {
 
         Route::get('/', [MemberController::class, 'main'])->name('member');
         Route::get('/create', [MemberController::class, 'create'])->name('memberCreate');
@@ -48,7 +48,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/delete/{id}', [MemberController::class, 'destroy'])->name('memberDelete');
     });
 
-    Route::prefix('user')->middleware('is_admin')->group(function () {
+    Route::prefix('user')->middleware('singleRole')->group(function () {
 
         Route::get('/', [UsersController::class, 'main'])->name('user');
         Route::get('/create', [UsersController::class, 'create'])->name('userCreate');
@@ -59,7 +59,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/delete/{id}', [UsersController::class, 'destroy'])->name('userDelete');
     });
 
-    Route::prefix('outlet')->middleware('is_admin')->group(function () {
+    Route::prefix('outlet')->middleware('singleRole')->group(function () {
 
         Route::get('/', [OutletController::class, 'main'])->name('outlet');
         Route::get('/create', [OutletController::class, 'create'])->name('outletCreate');
@@ -70,7 +70,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/delete/{id}', [OutletController::class, 'destroy'])->name('outletDelete');
     });
 
-    Route::prefix('paket')->middleware('is_admin')->group(function () {
+    Route::prefix('paket')->middleware('singleRole')->group(function () {
 
         Route::get('/', [PaketController::class, 'main'])->name('paket');
         Route::get('/create', [PaketController::class, 'create'])->name('paketCreate');
@@ -82,7 +82,7 @@ Route::middleware('auth')->group(function () {
     });
 
 
-    Route::prefix('transaksi')->middleware(['is_admin', 'is_kasir'])->group(function () {
+    Route::prefix('transaksi')->middleware('doubleRole')->group(function () {
 
         Route::get('/', [TransaksiController::class, 'main'])->name('transaksi');
         Route::get('/create', [TransaksiController::class, 'create'])->name('transaksiCreate');
@@ -94,7 +94,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/selesai/{id}', [TransaksiController::class, 'selesaiTransaksi'])->name('transaksiSelesai');
     });
 
-    Route::prefix('laporan-transaksi')->middleware(['is_admin', 'is_kasir', 'is_owner'])->group(function () {
+    Route::prefix('laporan-transaksi')->middleware('tripleRole')->group(function () {
 
         Route::get('/', [LaporanTransaksiController::class, 'main'])->name('laporanTransaksi');
         Route::get('/print', [LaporanTransaksiController::class, 'print'])->name('laporanTransaksiPrint');

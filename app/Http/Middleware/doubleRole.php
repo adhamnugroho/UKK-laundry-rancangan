@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class isKasir
+class doubleRole
 {
     /**
      * Handle an incoming request.
@@ -15,11 +15,10 @@ class isKasir
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (auth()->user()->role != 'kasir') {
-
-            abort(403, 'Unauthorized');
+        if(auth()->user()->role == 'admin' || auth()->user()->role == 'kasir') {
+            return $next($request);
         }
 
-        return $next($request);
+        return back()->with('status', 'error')->with('message', 'Status akun anda bukan admin atau kasir');
     }
 }

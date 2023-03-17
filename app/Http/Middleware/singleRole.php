@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class dashboardAdmin
+class singleRole
 {
     /**
      * Handle an incoming request.
@@ -16,11 +16,10 @@ class dashboardAdmin
     public function handle(Request $request, Closure $next): Response
     {
 
-        if (auth()->user()->role != 'owner') {
-
-            abort(403, 'Unauthorized');
+        if(auth()->user()->role == 'admin') {
+            return $next($request);
         }
 
-        return $next($request);
+        return back()->with('status', 'error')->with('message', 'Status akun anda bukan admin');
     }
 }

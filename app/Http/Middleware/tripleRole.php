@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class isOwner
+class tripleRole
 {
     /**
      * Handle an incoming request.
@@ -15,12 +15,10 @@ class isOwner
      */
     public function handle(Request $request, Closure $next): Response
     {
-
-        if (auth()->user()->role != 'owner') {
-
-            abort(403, 'Unauthorized');
+        if (auth()->user()->role == 'admin' || auth()->user()->role == 'kasir' || auth()->user()->role == 'owner') {
+            return $next($request);
         }
 
-        return $next($request);
+        return back()->with('status', 'error')->with('message', 'Status akun anda bukan admin atau kasir atau owner');
     }
 }
