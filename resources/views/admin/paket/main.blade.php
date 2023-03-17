@@ -44,7 +44,7 @@
                                         <td>{{ $key + 1 }}</td>
                                         <td>{{ $pt->nama }}</td>
                                         <td>{{ $pt->outlet->nama }}</td>
-                                        <td>{{ $pt->harga }}</td>
+                                        <td>{{ number_format($pt->harga,0,",",".") }}</td>
                                         <td>
                                             <a href="{{ route('paketShow', $pt->id) }}" class="btn btn-warning btn-sm">
                                                 <i class="fa fa-eye"></i>

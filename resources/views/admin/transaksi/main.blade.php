@@ -45,7 +45,7 @@
                                         <td>{{ $key + 1 }}</td>
                                         <td>{{ $tr->kode_invoice }}</td>
                                         <td>{{ $tr->detail_transaksi[0]->paket->nama }}</td>
-                                        <td>{{ $tr->tgl }}</td>
+                                        <td>{{ date_format(date_create($tr->tgl), "d-m-Y") }}</td>
                                         <td>{{ $tr->status }}</td>
                                         <td>
                                             <a href="{{ route('transaksiShow', $tr->id) }}" class="btn btn-warning btn-sm">

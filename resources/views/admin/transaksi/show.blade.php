@@ -79,7 +79,7 @@
                                 <label for="total_harga">Total Harga </label>
                                 <input type="number" class="form-control" id="total_harga" name="total_harga"
                                     placeholder="Masukkan Total Harga transaksi"
-                                    value="{{ old('total_harga') ? old('total_harga') : $transaksi->total_harga }}"
+                                    value="{{ old('total_harga') ? old('total_harga') : number_format($transaksi->total_harga,0,",",".") }}"
                                     step="0.1" max="5" disabled>
                             </div>
                             <div class="form-group">

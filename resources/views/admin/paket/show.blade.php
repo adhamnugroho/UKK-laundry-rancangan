@@ -73,7 +73,7 @@
                                 <label for="harga">Harga Paket </label>
                                 <input type="number" class="form-control" id="harga" name="harga"
                                     placeholder="Masukkan Harga Paket"
-                                    value="{{ old('harga') ? old('harga') : $paket->harga }}" min="20000" required
+                                    value="{{ old('harga') ? old('harga') : number_format($paket->harga,0,",",".") }}" min="20000" required
                                     disabled>
                             </div>
                         </div><!-- /.box-body -->
