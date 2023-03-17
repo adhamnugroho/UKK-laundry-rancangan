@@ -56,7 +56,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="qty">Quantity Paket (Kg) <sup class="text-danger">*</sup></label>
+                                <label for="qty">Quantity Paket (Kg) max.20kg <sup class="text-danger">*</sup></label>
                                 <input type="number" class="form-control" id="qty" name="qty"
                                     placeholder="Masukkan Quantity Paket" value="{{ old('qty') }}" step="0.1"
                                     max="20" required>
@@ -72,7 +72,7 @@
                                     placeholder="Masukkan Batas Waktu Transaksi" value="{{ old('batas_waktu') }}" required>
                             </div>
                             <div class="form-group">
-                                <label for="diskon">Diskon (%)</label>
+                                <label for="diskon">Diskon (%) max.100%</label>
                                 <input type="number" class="form-control" id="diskon" name="diskon"
                                     placeholder="Masukkan diskon transaksi" value="{{ old('diskon') }}" max="100">
                             </div>

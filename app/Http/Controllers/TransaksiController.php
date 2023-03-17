@@ -25,7 +25,7 @@ class TransaksiController extends Controller
             'judul' => $this->judul,
             'menu' => $this->menu,
             'sub_menu' => $this->sub_menu,
-            'transaksi' => transaksi::all(),
+            'transaksi' => transaksi::orderBy('id', 'DESC')->get(),
         ]);
     }
 
