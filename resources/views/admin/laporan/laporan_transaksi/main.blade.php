@@ -114,12 +114,12 @@
 
                 window.open(
                     `{{ route('laporanTransaksiPrint') }}?tanggal_awal=${tanggal_awal}&tanggal_akhir=${tanggal_akhir}`,
-                    '_self');
+                    '_blank');
             } else {
 
                 if (confirm("Anda ingin meng-print semua data transaksi?")) {
                     window.open(
-                        `{{ route('laporanTransaksiPrint') }}`, '_self');
+                        `{{ route('laporanTransaksiPrint') }}`, '_blank');
                 } else {
                     alert("Pembuatan laporan dibatalkan")
                 }
